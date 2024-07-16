@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage repayment calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="calculator-results | grid-2-cols">
+        <div class="calculator">
+          <div class="grid-2-cols">
+            <h2 class="title-section | txt-neutral-5">Mortgage Calculator</h2>
+
+            <button id="reset-btn" type="reset" class="reset-btn">
+              Clear All
+            </button>
+          </div>
+
+          <div class="calculator__body">
+            <div class="mAmount | flow">
+              <label for="mAmount-input">Mortgage Amount</label>
+
+              <div class="position-rel">
+                <input
+                  type="text"
+                  id="mAmount-input"
+                  class="form-control"
+                  required
+                  data-type="form-element"
+                />
+
+                <span class="accent | flex-row accent--square">£</span>
+              </div>
+
+              <span id="invalid-msg--mAmount-input" class="invalid-msg"></span>
+            </div>
+
+            <div class="mTerm | grid-2-cols">
+              <div class="flow">
+                <label for="mTerm-input">Mortgage Term</label>
+
+                <div class="position-rel">
+                  <input
+                    type="text"
+                    id="mTerm-input"
+                    class="form-control"
+                    min="0"
+                    required
+                    data-type="form-element"
+                  />
+
+                  <span class="accent | flex-row">years</span>
+                </div>
+
+                <span id="invalid-msg--mTerm-input" class="invalid-msg"></span>
+              </div>
+
+              <div class="flow">
+                <label for="mInterestRate-input">Interest Rate</label>
+
+                <div class="position-rel">
+                  <input
+                    type="text"
+                    id="mInterestRate-input"
+                    class="form-control"
+                    min="0"
+                    required
+                    data-type="form-element"
+                  />
+
+                  <span class="accent | flex-row accent--square">%</span>
+                </div>
+
+                <span
+                  id="invalid-msg--mInterestRate-input"
+                  class="invalid-msg"
+                ></span>
+              </div>
+            </div>
+
+            <div class="mType | flow">
+              <p>Mortgage Type</p>
+
+              <div class="flow">
+                <label for="rd1" class="form-control flex-row txt-neutral-5">
+                  <input
+                    type="radio"
+                    id="rd1"
+                    name="radio-oval"
+                    required
+                    data-type="form-element"
+                  />
+                  Repayment
+                </label>
+
+                <label for="rd2" class="form-control flex-row txt-neutral-5">
+                  <input
+                    type="radio"
+                    id="rd2"
+                    name="radio-oval"
+                    data-type="form-element"
+                  />
+                  Interest Only
+                </label>
+              </div>
+
+              <span id="invalid-msg--radio-oval" class="invalid-msg"></span>
+            </div>
+
+            <button
+              id="calculate-btn"
+              class="calculate-btn | form-control flex-row"
+            >
+              <img src="assets/images/icon-calculator.svg" alt="" />Calculate
+              Repayments
+            </button>
+          </div>
+        </div>
+
+        <div class="results">
+          <div id="home-state" class="flow txt-center">
+            <img
+              src="assets/images/illustration-empty.svg"
+              alt=""
+              style="margin-inline: auto"
+            />
+
+            <h2 class="title-section | txt-neutral-1">Results shown here</h2>
+
+            <p>
+              Complete the form and click "calculate repayments" to see what
+              your monthly repayments would be.
+            </p>
+          </div>
+
+          <div id="results-state" class="flow hidden">
+            <h2 class="title-section | txt-neutral-1">Your results</h2>
+
+            <p>
+              Your results are shown below based on the information you
+              provided. To adjust the results, edit the form and click
+              "calculate repayments" again.
+            </p>
+
+            <div class="results-group">
+              <p>
+                Your monthly repayments
+                <span
+                  id="monthly-repayments"
+                  class="txt-primary-1 fw-bold"
+                ></span>
+              </p>
+
+              <hr style="border-color: hsl(200, 24%, 40%)" />
+
+              <p>
+                Total you'll repay over the term
+                <span id="total-term" class="txt-neutral-1 fw-bold"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
